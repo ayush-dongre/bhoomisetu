@@ -1,0 +1,42 @@
+{
+  "colors": {
+    "primary": "#002520",
+    "secondary": "#2a685e",
+    "tertiary": "#311b00",
+    "background": "#eefdf7",
+    "surface": "#eefdf7",
+    "error": "#ba1a1a",
+    "on-primary": "#ffffff",
+    "on-surface": "#111e1b",
+    "on-background": "#111e1b",
+    "on-error": "#ffffff",
+    "surface-variant": "#d7e6e1",
+    "outline": "#717976",
+    "primary-container": "#173b35",
+    "secondary-container": "#adecdf",
+    "tertiary-container": "#4e2e00",
+    "error-container": "#ffdad6"
+  },
+  "spacing": {
+    "space-2xs": "0.25rem",
+    "space-xs": "0.5rem",
+    "space-sm": "0.75rem",
+    "space-md": "1rem",
+    "space-lg": "1.5rem",
+    "space-xl": "2rem",
+    "space-2xl": "3rem",
+    "space-3xl": "4rem",
+    "space-4xl": "6rem",
+    "gutter-mobile": "1rem",
+    "gutter-desktop": "2rem",
+    "max-width-content": "1440px"
+  },
+  "rounded": {
+    "sm": "0.25rem",
+    "DEFAULT": "0.5rem",
+    "md": "0.75rem",
+    "lg": "1rem",
+    "xl": "1.5rem",
+    "full": "9999px"
+  }
+}

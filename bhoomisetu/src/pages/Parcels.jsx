@@ -6,18 +6,19 @@ import ParcelTable from '../components/parcels/ParcelTable';
 import ParcelDetails from '../components/parcels/ParcelDetails';
 import Modal from '../components/common/Modal';
 import { useFilters } from '../hooks/useFilters';
-import { PARCELS } from '../data/parcels';
+import { useApp } from '../context/AppContext';
 
 export default function Parcels() {
+  const { parcels } = useApp();
   const { search, setSearch, filters, setFilter, paginated, page, setPage, totalPages, total } =
-    useFilters(PARCELS, { searchKeys: ['id', 'surveyNumber', 'ownerName'], pageSize: 12 });
+    useFilters(parcels, { searchKeys: ['id', 'surveyNumber', 'ownerName', 'district', 'state'], pageSize: 12 });
   const [selected, setSelected] = useState(null);
 
   return (
     <div className="space-y-4">
       <div>
         <h1 className="text-xl font-bold text-gray-800">Land Parcels</h1>
-        <p className="text-sm text-gray-400">{PARCELS.length} geo-tagged land parcels across all active projects</p>
+        <p className="text-sm text-gray-400">{parcels.length} geo-tagged land parcels across all active projects</p>
       </div>
 
       <Card>
@@ -36,3 +37,4 @@ export default function Parcels() {
     </div>
   );
 }
+

@@ -1,17 +1,12 @@
-const ITEMS = [
-  { label: 'On Track', color: '#22c55e' },
-  { label: 'At Risk', color: '#eab308' },
-  { label: 'Delayed', color: '#ef4444' },
-  { label: 'Completed', color: '#1e40d9' },
-];
+import { PARCEL_STATUS_COLORS } from '../../data/parcels';
 
 export default function MapLegend() {
   return (
-    <div className="flex flex-wrap gap-4 bg-white rounded-lg border border-gray-100 px-4 py-2.5 text-xs text-gray-600">
-      {ITEMS.map((i) => (
-        <span key={i.label} className="flex items-center gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: i.color }} />
-          {i.label}
+    <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs text-gray-600">
+      {Object.entries(PARCEL_STATUS_COLORS).map(([label, color]) => (
+        <span key={label} className="flex items-center gap-1.5 whitespace-nowrap">
+          <span className="h-3 w-3 rounded-sm border border-black/10" style={{ backgroundColor: color }} />
+          {label}
         </span>
       ))}
     </div>

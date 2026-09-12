@@ -17,7 +17,7 @@ export default function Projects() {
     projects, total, search, setSearch, stateFilter, setStateFilter,
     statusFilter, setStatusFilter, sortKey, sortDir, toggleSort,
   } = useProjects();
-  const { pushToast } = useApp();
+  const { pushToast, addProject } = useApp();
   const [view, setView] = useState('table');
   const [showNew, setShowNew] = useState(false);
   const [page, setPage] = useState(1);
@@ -29,10 +29,11 @@ export default function Projects() {
 
   const submitProject = (e) => {
     e.preventDefault();
+    addProject(form);
     setShowNew(false);
-    pushToast(`Project "${form.name || 'Untitled'}" submitted for approval. Auto-generated ID assigned.`, 'success');
     setForm({ name: '', department: '', state: STATES[0].name, district: STATES[0].districts[0], land: '', purpose: '', cost: '' });
   };
+
 
   return (
     <div className="space-y-4">

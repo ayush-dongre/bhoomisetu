@@ -17,7 +17,7 @@ export const ROLE_PERMISSIONS = {
 };
 
 export const USERS = [
-  { id: 'USR-001', name: 'Rajiv Malhotra', email: 'rajiv.malhotra@gov.in', officerId: 'CM-2026-001', role: 'Central Ministry', state: 'All India', district: '-', department: 'Ministry of Rural Development' },
+  { id: 'USR-001', name: 'shivam kuche', email: 'alexclothan@gmail.com', officerId: 'CM-2026-001', role: 'Central Ministry', state: 'All India', district: '-', department: 'Ministry of Rural Development' },
   { id: 'USR-002', name: 'Sunita Rao', email: 'sunita.rao@gov.in', officerId: 'SNO-MH-014', role: 'State Nodal Officer', state: 'Maharashtra', district: '-', department: 'State Revenue Department' },
   { id: 'USR-003', name: 'Anil Deshmukh', email: 'anil.deshmukh@gov.in', officerId: 'DC-PUN-007', role: 'District Collector', state: 'Maharashtra', district: 'Pune', department: 'District Administration' },
   { id: 'USR-004', name: 'Kiran Bhatt', email: 'kiran.bhatt@nhai.gov.in', officerId: 'IA-NHAI-032', role: 'Implementing Agency', state: 'Gujarat', district: 'Surat', department: 'NHAI' },

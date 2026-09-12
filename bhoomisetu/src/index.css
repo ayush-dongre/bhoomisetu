@@ -12,3 +12,6 @@ body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
 
 .animate-fade-in { animation: fadeIn .25s ease-out; }
 @keyframes fadeIn { from { opacity:0; transform: translateY(4px);} to {opacity:1; transform:translateY(0);} }
+
+.gis-map .leaflet-control-zoom a { color: #1e3a8a; }
+.gis-map .leaflet-control-layers { border-color: #e5e7eb; font-family: Inter, sans-serif; }

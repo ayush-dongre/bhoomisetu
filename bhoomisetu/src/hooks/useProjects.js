@@ -1,7 +1,8 @@
 import { useMemo, useState } from 'react';
-import { PROJECTS } from '../data/projects';
+import { useApp } from '../context/AppContext';
 
 export function useProjects() {
+  const { projects: allProjects } = useApp();
   const [search, setSearch] = useState('');
   const [stateFilter, setStateFilter] = useState('All');
   const [statusFilter, setStatusFilter] = useState('All');
@@ -9,7 +10,7 @@ export function useProjects() {
   const [sortDir, setSortDir] = useState('asc');
 
   const filtered = useMemo(() => {
-    let result = PROJECTS.filter((p) => {
+    let result = (allProjects || []).filter((p) => {
       const matchesSearch =
         !search ||
         p.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -25,7 +26,7 @@ export function useProjects() {
       let vb = b[sortKey];
       if (typeof va === 'string') {
         va = va.toLowerCase();
-        vb = vb.toLowerCase();
+        vb = (vb || '').toLowerCase();
       }
       if (va < vb) return sortDir === 'asc' ? -1 : 1;
       if (va > vb) return sortDir === 'asc' ? 1 : -1;
@@ -33,7 +34,7 @@ export function useProjects() {
     });
 
     return result;
-  }, [search, stateFilter, statusFilter, sortKey, sortDir]);
+  }, [allProjects, search, stateFilter, statusFilter, sortKey, sortDir]);
 
   const toggleSort = (key) => {
     if (sortKey === key) {
@@ -46,10 +47,11 @@ export function useProjects() {
 
   return {
     projects: filtered,
-    total: PROJECTS.length,
+    total: (allProjects || []).length,
     search, setSearch,
     stateFilter, setStateFilter,
     statusFilter, setStatusFilter,
     sortKey, sortDir, toggleSort,
   };
 }
+

@@ -15,6 +15,7 @@ import Profile from '../pages/Profile';
 import Settings from '../pages/Settings';
 import Help from '../pages/Help';
 import NotFound from '../pages/NotFound';
+import MockupViewer from '../components/MockupViewer';
 import { useAuth } from '../context/AuthContext';
 
 function ProtectedRoute({ children }) {
@@ -48,6 +49,7 @@ export default function AppRoutes() {
         <Route path="profile" element={<Profile />} />
         <Route path="settings" element={<Settings />} />
         <Route path="help" element={<Help />} />
+        <Route path="mockups/:name" element={<MockupViewer />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

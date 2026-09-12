@@ -6,16 +6,17 @@ import CompensationChart from '../components/compensation/CompensationChart';
 import StatsCard from '../components/dashboard/StatsCard';
 import { IndianRupee, CheckCircle2, Clock } from 'lucide-react';
 import { useFilters } from '../hooks/useFilters';
-import { COMPENSATION_RECORDS } from '../data/compensation';
+import { useApp } from '../context/AppContext';
 import { formatLakh } from '../utils/formatCurrency';
 
 export default function Compensation() {
+  const { compensation } = useApp();
   const { search, setSearch, filters, setFilter, paginated, page, setPage, totalPages, total } =
-    useFilters(COMPENSATION_RECORDS, { searchKeys: ['id', 'ownerName', 'parcelId'], pageSize: 10 });
+    useFilters(compensation, { searchKeys: ['id', 'ownerName', 'parcelId', 'district', 'state'], pageSize: 10 });
 
-  const totalAssessed = COMPENSATION_RECORDS.reduce((s, r) => s + r.amountAssessed, 0);
-  const totalPaid = COMPENSATION_RECORDS.reduce((s, r) => s + r.amountPaid, 0);
-  const pendingCount = COMPENSATION_RECORDS.filter((r) => r.paymentStatus === 'Pending').length;
+  const totalAssessed = compensation.reduce((s, r) => s + (r.amountAssessed || 0), 0);
+  const totalPaid = compensation.reduce((s, r) => s + (r.amountPaid || 0), 0);
+  const pendingCount = compensation.filter((r) => r.paymentStatus === 'Pending').length;
 
   return (
     <div className="space-y-5">
@@ -43,3 +44,4 @@ export default function Compensation() {
     </div>
   );
 }
+
